@@ -21,3 +21,22 @@ batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
 mo = batRegex.search('Batmobile lost a wheel')
 print(mo.group())
 print(mo.group(1))
+
+#? Optional
+batRegex = re.compile(r'Bat(wo)?man')
+mo1 = batRegex.search('The adventures of Batman')
+print(mo1.group())
+mo2 = batRegex.search('The adventures of Batwoman')
+print(mo2.group())
+
+#* zero or more
+batRegex = re.compile(r'Bat(wo)*man')
+mo1 = batRegex.search('The adventures of Batwowowowowoman')
+print(mo1.group())
+
+#+ atleast once
+batRegex = re.compile(r'Bat(wo)+man')
+mo1 = batRegex.search('The adventures of Batwowowowowoman')
+print(mo1.group())
+mo1 = batRegex.search('The adventures of Batwoman')
+print(mo1.group())
